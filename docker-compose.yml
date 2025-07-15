@@ -1,0 +1,26 @@
+
+services:
+  ollama: # Servicio de ollama LLM
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    networks:
+      - todo-net
+    volumes:
+      - ollama_data:/root/.ollama
+    entrypoint: ["/bin/sh", "-c", "ollama serve & sleep 2 && ollama pull mistral && wait"]
+
+  app:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080" #puerto de la aplicaicon
+    networks:
+      - todo-net
+
+networks:
+  todo-net:
+
+volumes:
+  ollama_data:

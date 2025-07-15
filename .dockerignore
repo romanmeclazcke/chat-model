@@ -1,0 +1,19 @@
+# Ignorar archivos de Maven
+target/
+!target/*.jar
+
+# Ignorar archivos de configuración de IDEs
+.idea/
+*.iml
+
+# Ignorar archivos de Git
+.git/
+.gitignore
+
+# Ignorar archivos de Docker
+Dockerfile
+.dockerignore
+
+# Ignorar archivos temporales
+*.tmp
+*.log
