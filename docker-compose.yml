@@ -16,6 +16,11 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080" #puerto de la aplicaicon
+    env_file:
+      - .env
+    environment:
+      - HUME_TTS_BASE_URL=https://api.hume.ai/v0/tts
+      - HUME_TTS_KEY=${HUME_TTS_KEY}
     networks:
       - todo-net
 
